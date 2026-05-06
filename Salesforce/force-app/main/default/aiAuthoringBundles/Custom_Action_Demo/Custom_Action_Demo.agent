@@ -133,7 +133,7 @@ topic contact_management:
                     description: "True if contact exists"
                 contact_name: string
                     description: "Contact name if found"
-            target: "flow://Validate_Contact_By_Email"
+            target: "flow://ValidateContactByEmail"
             label: "Validate Contact"
 
         create_contact:
