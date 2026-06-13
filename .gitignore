@@ -1,0 +1,12 @@
+# Salesforce CLI local cache (machine-specific, must not be committed)
+.sfdx/
+
+# Python build artifacts and environments
+__pycache__/
+*.py[cod]
+Python/venv/
+Python/build/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
