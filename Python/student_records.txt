@@ -1,0 +1,11 @@
+Name | Age | Maths | Science | English
+Kiran | 23 | 97 | 55 | 90
+Ramesh | 24 | 61 | 54 | 46
+Pavan | 52 | 83 | 86 | 60
+Ramesh | 26 | 64 | 90 | 48
+Ramesh | 23 | 88 | 83 | 78
+Teja | 26 | 66 | 94 | 57
+Pavan | 23 | 98 | 91 | 43
+Pavan | 52 | 81 | 96 | 64
+Pavan | 25 | 67 | 42 | 99
+Ramesh | 23 | 99 | 76 | 53
