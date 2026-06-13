@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Document Summary" icon-name="standard:document">
+        <div class="slds-m-around_medium">
+            <p class="slds-m-bottom_small slds-text-body_small">
+                Select up to one File, one Attachment, and one Note, then generate an AI summary.
+            </p>
+
+            <template lwc:if={loadError}>
+                <div class="slds-m-bottom_small">
+                    <lightning-icon icon-name="utility:warning" size="x-small"
+                        alternative-text="Warning" class="slds-text-color_error"></lightning-icon>
+                    <span class="slds-text-color_error slds-m-left_x-small">{loadError}</span>
+                </div>
+            </template>
+
+            <template lwc:if={hasRows}>
+                <lightning-datatable
+                    key-field="id"
+                    data={rows}
+                    columns={columns}
+                    selected-rows={selectedRows}
+                    onrowselection={handleRowSelection}
+                    hide-checkbox-column="false">
+                </lightning-datatable>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-color_weak slds-m-vertical_small">
+                    No Files, Attachments, or Notes found for this record.
+                </p>
+            </template>
+
+            <div class="slds-m-top_medium">
+                <lightning-button variant="brand" label="Generate Summary"
+                    onclick={handleSummarize} disabled={isSummarizeDisabled}
+                    class="slds-m-right_x-small"></lightning-button>
+                <lightning-button variant="neutral" label="Clear"
+                    onclick={handleClear} disabled={isLoading}></lightning-button>
+            </div>
+
+            <template lwc:if={isLoading}>
+                <div class="slds-m-top_medium">
+                    <lightning-spinner alternative-text="Generating summary" size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:if={hasSummary}>
+                <div class="slds-m-top_medium slds-box slds-box_x-small">
+                    <lightning-formatted-rich-text value={summary}></lightning-formatted-rich-text>
+                </div>
+            </template>
+
+            <template lwc:if={hasError}>
+                <div class="slds-m-top_medium">
+                    <lightning-icon icon-name="utility:error" size="small"
+                        alternative-text="Error" class="slds-text-color_error"></lightning-icon>
+                    <span class="slds-text-color_error slds-m-left_x-small">{errorMessage}</span>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

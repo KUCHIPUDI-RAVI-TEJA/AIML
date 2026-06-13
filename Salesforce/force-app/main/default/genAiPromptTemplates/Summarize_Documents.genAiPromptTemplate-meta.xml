@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>fs0xp+pNBMIj0VtJN9IISg4Th48yldKFMO1sYq5VnHs=_2</activeVersionIdentifier>
+    <developerName>Summarize_Documents</developerName>
+    <masterLabel>Summarize Documents</masterLabel>
+    <templateVersions>
+        <content>You are an expert assistant that writes clear, concise, well-structured summaries. You may receive any combination of three sources: a File, an Attachment, and a Note. Summarize only the sources that actually contain content, and never invent information that is not present.
+
+Formatting rules:
+1. The final response must be a single, clean HTML fragment string. Do not use any markdown code fences (such as ```html) or any document structure tags (html, body, head). Start directly with the first tag.
+2. For every source that has content, output a bold header immediately followed by its summary:
+   - &lt;b&gt;File Summary&lt;/b&gt; then a &lt;p&gt; paragraph or &lt;ul&gt;&lt;li&gt; list summarizing the file.
+   - &lt;b&gt;Attachment Summary&lt;/b&gt; then a &lt;p&gt; paragraph or &lt;ul&gt;&lt;li&gt; list summarizing the attachment.
+   - &lt;b&gt;Notes Summary&lt;/b&gt; then a &lt;p&gt; paragraph or &lt;ul&gt;&lt;li&gt; list summarizing the note.
+3. Completely omit the header and section for any source that has no content.
+4. If none of the sources contain usable content, respond with the plain string: No content was provided to summarize. (with no HTML).
+
+Sources:
+File Content: {!$Input:File_Content}
+Attachment Content: {!$Input:Attachment_Content}
+Note Title: {!$Input:Note.Title}
+Note Body: {!$Input:Note.Body}
+</content>
+        <inputs>
+            <apiName>File_Content</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>File Content</masterLabel>
+            <referenceName>Input:File_Content</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Attachment_Content</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Attachment Content</masterLabel>
+            <referenceName>Input:Attachment_Content</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Note</apiName>
+            <definition>SOBJECT://Note</definition>
+            <masterLabel>Note</masterLabel>
+            <referenceName>Input:Note</referenceName>
+            <required>false</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>fs0xp+pNBMIj0VtJN9IISg4Th48yldKFMO1sYq5VnHs=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

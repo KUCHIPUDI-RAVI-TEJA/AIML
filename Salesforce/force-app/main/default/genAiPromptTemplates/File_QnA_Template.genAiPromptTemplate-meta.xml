@@ -34,7 +34,7 @@ If the answer is not found in the document, respond with: &quot;The required inf
             <referenceName>Input:File</referenceName>
             <required>true</required>
         </inputs>
-        <primaryModel>sfdc_ai__DefaultVertexAIGemini20FlashLite001</primaryModel>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
         <versionIdentifier>bOd/wkJ6TJ7ARCmOul2wTo+cQDnF20xJOM0IalsQvgM=_1</versionIdentifier>
     </templateVersions>
